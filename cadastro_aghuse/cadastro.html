@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCP - Formulário Unificado AGHUse</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+        
+        body { 
+            font-family: 'Roboto Condensed', sans-serif; 
+        }
+        
+        /* Classes personalizadas para manter a densidade do formulário e otimização A4 */
+        .text-tiny { font-size: 8px !important; }
+        .text-sub { font-size: 9px !important; }
+        .text-footer { font-size: 7px !important; }
+        
+        .input-line { 
+            border: none; 
+            border-bottom: 1px solid #ccc; 
+            padding: 1px; 
+            width: 100%; 
+            font-size: 10px; 
+            text-transform: uppercase; 
+            background-color: transparent;
+        }
+        .input-line:focus {
+            outline: none;
+            border-bottom: 1px solid #0d6efd;
+        }
+
+        @media print {
+            @page { size: A4; margin: 0.4cm; }
+            body { background: white; padding: 0; }
+            .container-main { box-shadow: none !important; border: 1px solid #000 !important; width: 100% !important; margin: 0 !important; }
+            input { border-bottom: 1px solid #000 !important; }
+            form { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+<body class="bg-light p-2">
+
+    <div class="container-main bg-white shadow mx-auto" style="max-width: 820px;">
+        
+        <header class="p-3 border-bottom border-2 border-dark bg-white">
+            <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                <div class="d-flex align-items-center gap-3">
+                    <img src="saude_fundoquadriculado.png" alt="Saúde fundo quadriculado" class="img-fluid" style="height: 64px; object-fit: contain;" />
+                    <img src="hcp.png" alt="hospital correia picanço" class="img-fluid" style="height: 64px; object-fit: contain;" />
+                </div>
+                <h1 class="text-center fs-5 fw-bold text-uppercase m-0 flex-grow-1">Cadastro de Usuário do AGHUse</h1>
+                <div class="text-end">
+                    <img src="aghuse_semfundo.png" alt="aghuse logotipo" class="img-fluid" style="height: 36px; object-fit: contain;" />
+                </div>
+            </div>
+        </header>
+
+        <div class="d-print-none bg-dark p-2 d-flex gap-3 justify-content-center">
+            <button type="button" onclick="mudarPerfil('admin')" class="btn btn-outline-light btn-sm fw-bold text-uppercase px-4">ADMINISTRATIVO</button>
+            <button type="button" onclick="mudarPerfil('assist')" class="btn btn-outline-light btn-sm fw-bold text-uppercase px-4">ASSISTENCIAL</button>
+        </div>
+
+        <form class="p-4">
+            <div class="row g-2 mb-3">
+                <div class="col-12 col-md-8">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Nome:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-6 col-md-2">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">DN:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-6 col-md-2">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Gênero:</label>
+                    <input type="text" class="input-line">
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">CPF:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">RG:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-6 col-md-2">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Naturalidade:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-6 col-md-2">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Fone:</label>
+                    <input type="text" class="input-line">
+                </div>
+
+                <div class="col-12 col-md-8">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Mãe:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-primary m-0">E-mail:</label>
+                    <input type="email" class="input-line border-primary border-opacity-25">
+                </div>             
+
+                <div class="col-12 col-md-8">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Endereço:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-6 col-md-2">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Cidade:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-6 col-md-2">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">CEP:</label>
+                    <input type="text" class="input-line">
+                </div>
+            </div>
+
+            <div class="border-top border-dark pt-2 row g-2 mb-3">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Matrícula:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Cargo:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Vínculo:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Início Vínculo:</label>
+                    <input type="text" class="input-line">
+                </div>
+                <div class="col-12">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-secondary m-0">Setor:</label>
+                    <input type="text" class="input-line">
+                </div>
+            </div>
+
+            <div id="assist-fields" class="d-none border-top border-primary bg-light p-2 row g-2 mb-3">
+                <div class="col-12 col-md-4">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-primary m-0">Nº Conselho:</label>
+                    <input type="text" class="input-line border-primary border-opacity-25">
+                </div>
+                <div class="col-6 col-md-4">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-primary m-0">Data Início:</label>
+                    <input type="text" class="input-line border-primary border-opacity-25">
+                </div>
+                <div class="col-6 col-md-4">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-primary m-0">Data Fim:</label>
+                    <input type="text" class="input-line border-primary border-opacity-25">
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-primary m-0">Grau Instrução:</label>
+                    <input type="text" class="input-line border-primary border-opacity-25">
+                </div>
+                <div class="col-12 col-md-8">
+                    <label class="d-block text-tiny fw-bold text-uppercase text-primary m-0">Curso / Instituição:</label>
+                    <input type="text" class="input-line border-primary border-opacity-25">
+                </div>
+            </div>
+
+            <div class="border border-dark p-2 bg-white mb-2">
+                <h4 class="text-sub fw-bold text-uppercase text-center border-bottom border-dark pb-1 mb-2">Termo de Responsabilidade</h4>
+                <div class="text-tiny text-justify lh-sm">
+                    <p class="mb-2">Eu, ____________________________________________________________, declaro possuir perfil sob minha responsabilidade e comprometo-me a:</p>
+                    <p class="mb-1"><strong>I.</strong> Não revelar fora do âmbito profissional fato ou informação de qualquer natureza de que tenha conhecimento por força de minhas atribuições, salvo em decorrência de decisão competente na esfera legal ou judicial, bem como de autoridade superior;</p>
+                    <p class="mb-1"><strong>II.</strong> Utilizar os dados dos sistemas informatizados de acesso restrito e manter a necessária cautela quando da exibição de dados em tela, impressora ou na gravação em meios eletrônicos, a fim de evitar que deles venham a tomar ciência pessoas não autorizadas;</p>
+                    <p class="mb-1"><strong>III.</strong> Não utilizar os sistemas informatizados de acesso restrito para fins diversos daqueles relacionados às minhas atribuições, não os utilizando para fins pessoais ou de terceiros, sob pena de responsabilização funcional e penal;</p>
+                    <p class="mb-1"><strong>IV.</strong> Não revelar minha senha de acesso ao(s) sistema(s) a ninguém e tomar o máximo de cuidado para que ela permaneça somente de meu conhecimento, podendo haver o cancelamento do acesso de forma espontânea sem aviso prévio, se for constatado uso indevido, como o fornecimento da senha a terceiros;</p>
+                    <p class="mb-1"><strong>V.</strong> Alterar minha senha, sempre que obrigatório ou que tenha suposição de descoberta por terceiros, não usando combinações simples que possam ser facilmente descobertas;</p>
+                    <p class="mb-2"><strong>VI.</strong> Responder, em todas as instâncias, pelas consequências das ações ou omissões de minha parte, que possam pôr em risco ou comprometer a exclusividade de conhecimento de minha senha, ou das transações a que tenha acesso;</p>
+                    
+                    <p class="fw-bold text-decoration-underline text-uppercase mb-2">DECLARO ESTAR PLENAMENTE ESCLARECIDA E CONSCIENTE DOS SEGUINTES PONTOS:</p>
+                    <p class="mb-1"><strong>I.</strong> É minha responsabilidade cuidar da integridade, confidencialidade e disponibilidade dos dados, informações contidas nos sistemas, devendo comunicar à Secretaria de Saúde de Pernambuco ao setor de TI, quaisquer indícios ou possibilidades de irregularidades, de desvios ou falhas identificadas nos sistemas, sendo proibida a exploração de falhas ou vulnerabilidades porventura existentes.</p>
+                    <p class="mb-1"><strong>II.</strong> Observar e Cumprir as Boas Práticas de Segurança da Informação, e suas diretrizes, bem como este Termo de Responsabilidade.</p>
+                    <p class="mb-2"><strong>III.</strong> Constitui infração funcional e penal inserir ou facilitar a inserção de dados falsos, alterar ou excluir indevidamente dados corretos dos sistemas ou bancos de dados da Administração Pública, com o fim de obter vantagem indevida para si ou para outrem ou para causar dano, bem como modificar ou alterar o sistema de informações ou programa de informática sem autorização ou sem solicitação de autoridade competente.</p>
+                    
+                    <p class="mb-3">Declaro, nesta data, ter ciência e estar de acordo com os procedimentos acima descritos e pelo Decreto nº 40.654 emitido pelo Governador do Estado, comprometendo-me a respeitá-los e cumpri-los plena e integralmente, além de manter sempre verossímeis os dados de instituição e de minha área de competência.</p>
+                    
+                    <p class="text-tiny fw-bold text-center mb-4">Recife-PE, ____________de__________________________de______________.</p>
+                    
+                    <div class="row text-center pt-3 g-2">
+                        <div class="col-4">
+                            <div class="border-top border-dark pt-1"><span class="text-tiny fw-bold text-uppercase">Visto Gerência</span></div>
+                        </div>
+                        <div class="col-4">
+                            <div class="border-top border-dark pt-1"><span class="text-tiny fw-bold text-uppercase">Visto Profissional</span></div>
+                        </div>
+                        <div class="col-4">
+                            <div class="border-top border-dark pt-1"><span class="text-tiny fw-bold text-uppercase">Visto T.I.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <footer class="p-2 border-top border-light d-flex justify-content-between text-footer fw-bold text-secondary text-uppercase">
+            <span>AUTOR: ARTHUR ARRUDA | WEB: CARLOS LIMA</span>
+            <span>Cadastro de Usuário - TR | V 1.1</span>
+        </footer>
+
+        <div class="d-print-none p-4 bg-light d-flex justify-content-center">
+            <button type="button" onclick="window.print()" class="btn btn-primary btn-lg fw-bold px-5 shadow">IMPRIMIR EM UMA PÁGINA</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function mudarPerfil(tipo) {
+            const assistFields = document.getElementById('assist-fields');
+            if(tipo === 'assist') {
+                assistFields.classList.remove('d-none');
+            } else {
+                assistFields.classList.add('d-none');
+            }
+        }
+    </script>
+</body>
+</html>
