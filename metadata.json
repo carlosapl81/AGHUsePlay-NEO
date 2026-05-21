@@ -1,0 +1,6 @@
+{
+  "name": "AGHUse Play",
+  "description": "Plataforma premium de vídeos de treinamento, manuais de instrução e suporte especializado em AGHUse com design sofisticado, iluminação suave e sombras realistas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
