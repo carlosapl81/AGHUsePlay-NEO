@@ -544,6 +544,7 @@ export default function App() {
               <span>Cadastro AGHUse</span>
             </a>
           </div>
+          
 
           <div className="flex items-center gap-1.5 flex-shrink-0">
             {/* Visual style controls */}
@@ -574,10 +575,11 @@ export default function App() {
             {/* Emergency TI Support Contact */}
             <button 
               onClick={() => setShowSuporteModal(true)} 
-              className={`p-1.5 sm:p-2 rounded-lg border text-yellow-500 bg-yellow-500/5 hover:bg-yellow-500/10 transition cursor-pointer ${theme === 'light-slate' ? 'border-yellow-200' : 'border-yellow-500/30'}`}
+              className={`gap-2 p-1.5 sm:p-2 rounded-lg border text-yellow-500 bg-yellow-500/5 hover:bg-yellow-500/10 flex items-center transition cursor-pointer ${theme === 'light-slate' ? 'border-yellow-200' : 'border-yellow-500/30'}`}
               title="Suporte Especializado TI"
             >
               <Phone className="w-3.5 h-3.5" />
+              <span className="text-xs sm:text-sm font-medium">Suporte</span>
             </button>
 
             {/* Administrate dashboard */}
@@ -621,11 +623,11 @@ export default function App() {
             
             {/* Elegant Hero Carousel Section */}
             {featuredHero && (
-              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/3] sm:aspect-[3/2] md:aspect-[21/9] flex items-center bg-slate-950 shadow-realistic-lg border border-slate-800/80 group">
-                <div className="absolute inset-0 opacity-40 z-0 bg-cover bg-center transition-all duration-1000 group-hover:scale-[1.02]" style={{ backgroundImage: `url('trumbnail/${featuredHero.capa}')` }}>
-                  <div className={`absolute inset-0 bg-gradient-to-tr ${getGradientForTitle(featuredHero.titulo)} opacity-80`}></div>
+              <div className="relative rounded-2xl sm:rounded-2xl overflow-hidden aspect-[16/10] sm:aspect-[21/9] md:aspect-[3/1] flex items-center bg-slate-950 shadow-realistic-lg border border-slate-800/80 group">
+                <div className="absolute inset-0 opacity-100 z-0 bg-cover bg-center transition-all duration-1000 group-hover:scale-[1.02]" style={{ backgroundImage: `url('trumbnail/${featuredHero.capa}')` }}>
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${getGradientForTitle(featuredHero.titulo)} opacity-50`}></div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-transparent z-10"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/70 to-transparent z-10"></div>
                 
                 <div className="relative z-20 px-6 sm:px-12 py-6 max-w-lg sm:max-w-xl md:max-w-2xl space-y-3 sm:space-y-4 text-left">
                   <span className="inline-flex items-center gap-1 px-3 py-1 bg-red-600 text-[10px] font-black tracking-wider text-white uppercase rounded-md shadow-md select-none border border-red-500/30">
@@ -960,28 +962,53 @@ export default function App() {
             </div>
 
             {/* Official Registration Form Banner Section */}
-            <div className="relative rounded-3xl overflow-hidden p-8 sm:p-12 text-left shadow-realistic-lg bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-950 border border-emerald-900/40 select-none">
+            <div className="relative rounded-3xl overflow-hidden p-8 sm:p-12 shadow-realistic-lg bg-gradient-to-r from-emerald-950 via-teal-900 to-slate-950 border border-emerald-900/40 select-none">
               <div className="absolute top-[-20%] right-[-10%] w-72 h-72 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none"></div>
-              <div className="relative z-10 space-y-4 max-w-2xl">
-                <span className="text-[10px] font-black tracking-widest text-[#f59e0b] uppercase bg-amber-500/10 px-3 py-1 border border-amber-500/20 rounded-md">
-                  Acesso ao Sistema
-                </span>
-                <h3 className="text-xl sm:text-3xl font-display font-black text-white leading-tight">
-                  Formulário Oficial de Cadastro AGHUse
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
-                  Faça o download do formulário oficial de liberação de login de operador do hospital. Preencha seus dados cadastrais, colha a assinatura física do chefe responsável e encaminhe à TI para ativação do prontuário.
-                </p>
-                <div className="pt-2">
-                  <a 
-                    href="cadastro_aghuse/cadastro.html" 
-                    target="_blank" 
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#f59e0b] hover:bg-amber-400 font-display font-black text-xs sm:text-sm text-slate-950 rounded-xl transition shadow-lg shadow-amber-950/25 cursor-pointer hover:scale-[1.02]"
-                  >
-                    <FileSpreadsheet className="w-4.5 h-4.5" />
-                    <span>Abrir Cadastro Online</span>
-                  </a>
+              <div className="relative z-10 grid gap-5 lg:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-slate-950/30 p-5 sm:p-6 text-left">
+                  <span className="text-[10px] font-black tracking-widest text-[#f59e0b] uppercase bg-amber-500/10 px-3 py-1 border border-amber-500/20 rounded-md">
+                    Acesso ao Sistema
+                  </span>
+                  <h3 className="mt-4 text-xl sm:text-3xl font-display font-black text-white leading-tight">
+                    Formulário de Cadastro AGHUse
+                  </h3>
+                  <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                    Faça o download do formulário oficial de liberação de login de operador do hospital. Preencha seus dados cadastrais, colha a assinatura física do chefe responsável e encaminhe à TI para ativação do prontuário.
+                  </p>
+                  <div className="pt-4">
+                    <a 
+                      href="cadastro_aghuse/cadastro.html" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#f59e0b] hover:bg-amber-400 font-display font-black text-xs sm:text-sm text-slate-950 rounded-xl transition shadow-lg shadow-amber-950/25 cursor-pointer hover:scale-[1.02]"
+                    >
+                      <FileSpreadsheet className="w-4.5 h-4.5" />
+                      <span>Abrir Cadastro Online</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-white/10 bg-slate-950/30 p-5 sm:p-6 text-left">
+                  <span className="text-[10px] font-black tracking-widest text-[#fb2c36] uppercase bg-amber-500/10 px-3 py-1 border border-amber-500/20 rounded-md">
+                    🚨Contingência da Triagem🚨
+                  </span>
+                  <h3 className="mt-4 text-xl sm:text-3xl font-display font-black text-white leading-tight">
+                    Formulário de Contingência da Triagem
+                  </h3>
+                  <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed font-light">
+                    Em caso de indisponibilidade do <strong className="font-bold">AGHUse</strong>, utilize o Formulário de Cadastro de Paciente para Regime de Contingência para registrar os atendimentos. Clique aqui para fazer o download.
+                  </p>
+                  <div className="pt-4">
+                    <a xs
+                      href="pdfs/ficha_emerg_contingencia.pdf" 
+                      target="_blank" 
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-[#c10007] hover:bg-red-400 font-display font-black text-xs sm:text-sm text-slate-950 rounded-xl transition shadow-lg shadow-red-950/25 cursor-pointer hover:scale-[1.02]"
+                    >
+                      <FileSpreadsheet className="w-4.5 h-4.5" />
+                      <span>Abrir Formulário</span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1454,7 +1481,7 @@ export default function App() {
                   <Phone className="w-5 h-5 fill-yellow-500/10 animate-shake" />
                 </div>
                 <div>
-                  <h3 className="font-display font-extrabold text-sm text-white text-center">Suporte Técnico TI & AGHUse</h3>
+                  <h3 className="font-display font-extrabold text-sm text-white text-center">Suporte Técnico do AGHUse</h3>
                   <p className="text-[10px] text-slate-500 font-mono uppercase text-center">Atendimento no Horário Comercial</p>
                 </div>
               </div>
@@ -1468,8 +1495,8 @@ export default function App() {
 
             <div className="space-y-4">
               <div className="p-3.5 bg-slate-950 border border-slate-800 rounded-xl">
-                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black block mb-1 text-center">Ramal Interno TI</p>
-                <p className="text-base font-black text-white font-mono block text-center">3184-3950 / 3933 </p>
+                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-black block mb-1 text-center">Contato AGHUse</p>
+                <p className="text-base font-black text-white font-mono block text-center">3184-3933 </p>
               </div>
               <div>
                   <h3 className="font-display font-extrabold text-sm text-white text-center">Se precisa de ajuda, depois de consultar nossos vídeos e manuais. Entrar nos canais abaixo:</h3>

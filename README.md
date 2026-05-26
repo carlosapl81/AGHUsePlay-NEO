@@ -1,32 +1,20 @@
-# AGHUse PLAY 🏥🎬
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-Uma plataforma web premium e ultra-responsiva para exibição de vídeos de treinamento e manuais de instrução dos módulos do sistema **AGHUse** (Internação, Emergência, Exames, Ambulatório, Estoque e Faturamento).
+# Run and deploy your AI Studio app
 
-Desenvolvido inteiramente em **HTML, CSS e JavaScript puros (Vanilla JS)**, sem qualquer necessidade de compilação ou instalação de dependências.
+This contains everything you need to run your app locally.
 
-## 🚀 Como Executar
+View your app in AI Studio: https://ai.studio/apps/3aa6e9b0-48b8-463b-a76a-059b8d1c89a3
 
-Para iniciar a plataforma, você não precisa rodar servidores, instalar Node.js ou executar comandos de terminal. 
+## Run Locally
 
-1. **Abra o arquivo principal:**
-   Basta dar um duplo-clique no arquivo `index.html` em qualquer navegador web moderno (Google Chrome, Microsoft Edge, Firefox, etc.).
-   
-2. **Uso Offline/Local:**
-   Por ser estruturado de forma 100% estática e local, o aplicativo carrega instantaneamente e funciona diretamente a partir do protocolo `file:///` do seu computador.
+**Prerequisites:**  Node.js
 
-## 🔑 Painel de Gestão (Administrador)
 
-A plataforma possui um dashboard administrativo persistente em `localStorage` para gerenciar (adicionar, editar ou excluir) vídeos, manuais, mural de notícias e feedbacks dos usuários.
-
-* **Usuário:** `admin`
-* **Senha:** `Sucesso.2026`
-
-## 🎨 Destaques do Design Premium
-
-* **Fundo Gradiente Dinâmico e Iluminação Suave:** Suporte a 3 esquemas visuais harmônicos (*Dark Slate*, *Dark Aurora* com gradiente roxo/cósmico, e *Light Slate*).
-* **Sombras Realistas:** Sistema avançado de profundidade com sombras customizadas via CSS.
-* **Micro-animações:** Efeitos suaves de hover, sliders fluidos, transições elegantes e carregamento reativo de ícones.
-* **Totalmente Responsivo:** Layout adaptado perfeitamente para computadores, tablets e smartphones (com barra de navegação móvel nativa).
-
----
-*Desenvolvido pela equipe de TI do Hospital de Alta Complexidade · 2026*
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
